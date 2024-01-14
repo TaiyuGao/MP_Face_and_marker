@@ -322,10 +322,9 @@ public class FaceLandmarkerHelper {
         }
     }
 
-
-
-
-
+    public float getMinFacePresenceConfidence() {
+        return minFacePresenceConfidence;
+    }
 
     public static class ResultBundle {
         private final FaceLandmarkerResult result;
