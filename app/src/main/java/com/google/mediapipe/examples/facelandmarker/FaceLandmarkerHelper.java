@@ -112,6 +112,10 @@ public class FaceLandmarkerHelper {
         this.minFacePresenceConfidence = minFacePresenceConfidence;
     }
 
+    public float getMinFacePresenceConfidence() {
+        return minFacePresenceConfidence;
+    }
+
     public void setMaxNumFaces(int maxNumFaces){
         this.maxNumFaces = maxNumFaces;
     }
@@ -320,10 +324,6 @@ public class FaceLandmarkerHelper {
                     error.getMessage() != null ? error.getMessage() : "An unknown error has occurred"
             );
         }
-    }
-
-    public float getMinFacePresenceConfidence() {
-        return minFacePresenceConfidence;
     }
 
     public static class ResultBundle {
