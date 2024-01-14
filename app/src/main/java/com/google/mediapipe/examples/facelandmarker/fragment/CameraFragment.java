@@ -38,8 +38,9 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_DRAGGING;
+import static androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_DRAGGING;
 
+import com.google.common.util.concurrent.ListenableFuture;
 import com.google.mediapipe.examples.facelandmarker.FaceLandmarkerHelper;
 import com.google.mediapipe.examples.facelandmarker.MainViewModel;
 import com.google.mediapipe.examples.facelandmarker.R;
@@ -47,6 +48,7 @@ import com.google.mediapipe.examples.facelandmarker.databinding.FragmentCameraBi
 import com.google.mediapipe.tasks.vision.core.RunningMode;
 
 import java.util.Locale;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -59,7 +61,7 @@ import java.util.concurrent.TimeUnit;
  * @Description
  * @since 1.0
  */
-public class CameraFragment extends Fragment {
+public class CameraFragment extends Fragment implements FaceLandmarkerHelper.LandmarkerListener{
     private static final String TAG = "Face Landmarker";
 
     private FragmentCameraBinding fragmentCameraBinding = null;
@@ -171,14 +173,14 @@ public class CameraFragment extends Fragment {
             @Override
             public void run() {
                 faceLandmarkerHelper = new FaceLandmarkerHelper(
-                        getContext(),
-                        RunningMode.LIVE_STREAM,
                         viewModel.getCurrentMinFaceDetectionConfidence(),
                         viewModel.getCurrentMinFaceTrackingConfidence(),
                         viewModel.getCurrentMinFacePresenceConfidence(),
                         viewModel.getCurrentMaxFaces(),
                         viewModel.getCurrentDelegate(),
-                        CameraFragment.this // Assuming 'this' refers to an implementation of FaceLandmarkerHelperListener
+                        RunningMode.LIVE_STREAM,
+                        getContext(),
+                        faceLandmarkerHelper.getFaceLandmarkerHelperListener() // Assuming 'this' refers to an implementation of FaceLandmarkerHelperListener
                 );
             }
         });
