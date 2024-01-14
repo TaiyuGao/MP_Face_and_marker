@@ -63,6 +63,13 @@ public class FaceLandmarkerHelper {
     // If the Face Landmarker will not change, a lazy val would be preferable.
     private FaceLandmarker faceLandmarker;
 
+    public FaceLandmarker getFaceLandmarker() {
+        return faceLandmarker;
+    }
+
+    public void setFaceLandmarker(FaceLandmarker faceLandmarker) {
+        this.faceLandmarker = faceLandmarker;
+    }
 
     public FaceLandmarkerHelper(
             float minFaceDetectionConfidence,
@@ -157,7 +164,7 @@ public class FaceLandmarkerHelper {
     // that are created on the main thread and used on a background thread, but
     // the GPU delegate needs to be used on the thread that initialized the
     // Landmarker
-    private void setupFaceLandmarker(){
+    public void setupFaceLandmarker(){
         // Set general face landmarker options
         BaseOptions.Builder baseOptionBuilder = BaseOptions.builder();
 
