@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel;
  * This ViewModel is used to store face landmarker helper settings.
  */
 public class MainViewModel extends ViewModel {
-/*
+
     private int delegate = FaceLandmarkerHelper.DELEGATE_CPU;
     private float minFaceDetectionConfidence = FaceLandmarkerHelper.DEFAULT_FACE_DETECTION_CONFIDENCE;
     private float minFaceTrackingConfidence = FaceLandmarkerHelper.DEFAULT_FACE_TRACKING_CONFIDENCE;
@@ -53,5 +53,4 @@ public class MainViewModel extends ViewModel {
         this.maxFaces = maxResults;
     }
 
- */
 }
