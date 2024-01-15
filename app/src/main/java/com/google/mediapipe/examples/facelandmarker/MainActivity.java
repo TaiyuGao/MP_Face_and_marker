@@ -26,12 +26,14 @@ import com.google.mediapipe.examples.facelandmarker.databinding.ActivityMainBind
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding activityMainBinding;
-    private final MainViewModel viewModel = new ViewModelProvider(this).get(MainViewModel.class);
+    private MainViewModel viewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(activityMainBinding.getRoot());
+
+        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
         NavHostFragment navHostFragment =
         (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container);

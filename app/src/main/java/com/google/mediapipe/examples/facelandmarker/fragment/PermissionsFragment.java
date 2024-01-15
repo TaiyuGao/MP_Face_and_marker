@@ -40,11 +40,15 @@ import androidx.lifecycle.LifecycleOwner;
 public class PermissionsFragment extends Fragment {
 
     //new
-    private final LifecycleOwner lifecycleOwner;
-    public PermissionsFragment(LifecycleOwner lifecycleOwner) {
-        this.lifecycleOwner = lifecycleOwner;
-        lifecycleOwner.getLifecycle().addObserver((LifecycleObserver) this);
+    //TODO:re-design the lifecycleOwner
+    private final LifecycleOwner lifecycleOwner = null;
+    public PermissionsFragment(){
+
     }
+//    public PermissionsFragment(LifecycleOwner lifecycleOwner) {
+//        this.lifecycleOwner = lifecycleOwner;
+//        lifecycleOwner.getLifecycle().addObserver((LifecycleObserver) this);
+//    }
 
     private static final String[] PERMISSIONS_REQUIRED = {Manifest.permission.CAMERA};
 
