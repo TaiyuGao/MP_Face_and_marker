@@ -88,6 +88,7 @@ public class FaceLandmarkerHelper {
         this.minFacePresenceConfidence = DEFAULT_FACE_PRESENCE_CONFIDENCE;
         this.maxNumFaces = DEFAULT_NUM_FACES;
         this.currentDelegate = DELEGATE_CPU;
+//        this.runningMode = runningMode;
         this.runningMode = RunningMode.IMAGE;
 
         setupFaceLandmarker();

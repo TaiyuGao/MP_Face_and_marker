@@ -182,11 +182,19 @@ public class CameraFragment extends Fragment implements FaceLandmarkerHelper.Lan
                         getContext(),
                         CameraFragment.this // Assuming 'this' refers to an implementation of FaceLandmarkerHelperListener
                 );
+                if (getActivity() != null) {
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            initBottomSheetControls();
+                        }
+                    });
+                }
             }
         });
 
         // Initialize UI control listeners
-        initBottomSheetControls();
+//        initBottomSheetControls();
     }
 
     private void initBottomSheetControls() {
