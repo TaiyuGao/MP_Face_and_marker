@@ -31,7 +31,7 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 //import androidx.lifecycle.lifecycleScope;
 import androidx.navigation.Navigation;
-
+import androidx.navigation.fragment.NavHostFragment;
 import com.google.mediapipe.examples.facelandmarker.R;
 
 public class PermissionsFragment extends Fragment implements LifecycleObserver {
@@ -68,10 +68,11 @@ public class PermissionsFragment extends Fragment implements LifecycleObserver {
     }
 
     private void navigateToCamera() {
-        requireActivity().runOnUiThread(() -> {
-            Navigation.findNavController(requireActivity(), R.id.fragment_container)
-                    .navigate(R.id.action_permissions_to_camera);
-        });
+        NavHostFragment navHostFragment = (NavHostFragment) requireActivity().getSupportFragmentManager()
+                .findFragmentById(R.id.fragment_container);
+        if (navHostFragment != null) {
+            navHostFragment.getNavController().navigate(R.id.action_permissions_to_camera);
+        }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
