@@ -180,7 +180,7 @@ public class CameraFragment extends Fragment implements FaceLandmarkerHelper.Lan
                         viewModel.getCurrentDelegate(),
                         RunningMode.LIVE_STREAM,
                         getContext(),
-                        faceLandmarkerHelper.getFaceLandmarkerHelperListener() // Assuming 'this' refers to an implementation of FaceLandmarkerHelperListener
+                        CameraFragment.this // Assuming 'this' refers to an implementation of FaceLandmarkerHelperListener
                 );
             }
         });
