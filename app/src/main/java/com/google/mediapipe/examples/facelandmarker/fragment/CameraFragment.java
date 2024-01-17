@@ -320,7 +320,7 @@ public class CameraFragment extends Fragment implements FaceLandmarkerHelper.Lan
     private void detectFace(ImageProxy imageProxy) {
         faceLandmarkerHelper.detectLiveStream(
                 imageProxy,
-                cameraFacing == CameraSelector.LENS_FACING_FRONT
+                cameraFacing == CameraSelector.LENS_FACING_BACK
         );
     }
 
